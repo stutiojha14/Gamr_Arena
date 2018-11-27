@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="ap.js"></script>
+  <link rel = "stylesheet"
+   type = "text/css"
+   href = "ap.css" />
+</head>
+  <body ng-app="gameApp" ng-controller="gameCtrl" style="background-color:hsl(0, 100%, 90%);" >
+	<nav class="caption navbar card navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" aling="center"><h1 style="padding:10px;">Game Arena</h1></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+          <ul class="nav navbar-nav" style="text-aling:center;">
+            <li style="float:left;margin-left:10px;"><a href="#">Home</a></li>
+            <li style="float:left;margin-left:50px;"><a href="#">About</a></li>
+            <li style="float:left;margin-left:100px;margin-right:100px;"><a href="#">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div><!--/.container-fluid -->
+  </nav>
+
+  <div class="col-xs-12">
+      <div class="text-center" style="margin-left:60px">
+         <h2>Search</h2><input  class="centerItem searchBox" type="text" placeholder="Game Title" ng-model="SearchByName" ng-change="Search(SearchByName)">
+			<br>
+			<h4 class="text-center text-danger" style="color:red">Total Result : <span class="badge">{{totoalResult}}</span></h4>
+      </div>
+      
+      <div class="sort-section">         
+          <div style="display: flex;justify-content: space-around;" class="mgnTop20 text-center">
+              <div>
+                Ascending<span class="glyphicon glyphicon-sort-by-order"></span>
+                <span><input type="radio" name="sort" ng-model="value" value="asc" ng-change="sort('asc')"></span>
+              </div>
+              
+              <div>
+                Descending<span class="glyphicon glyphicon-sort-by-order-alt"></span>
+                <input type="radio" name="sort" ng-model="value" value="desc" ng-change="sort('desc')">
+              </div>
+          </div>      
+      </div>
+
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4 customSearch text-center">
+          <br><br>
+      </div>
+     
+  </div>
+
+	<div class="col-xs-12">
+		 <div class="animated  fadeIn col card col-xs-11 col-sm-5 col-md-3 col-lg-2" ng-repeat="game in games" ng-if="game.title">
+           <div class="overlay">
+             <h4 align="left" class="title"><span class="glyphicon glyphicon-fire"></span> {{game.title}}</h4>
+              <div class="line centerItem"></div>
+              
+              <table class="details" >
+                  <tr>
+                    <td><span class="caption"><span class=" glyphicon glyphicon-blackboard"></span> Plateform : </td>
+                    <td>{{game.platform}}</td>
+                  </tr>
+                  
+                  <tr>
+                    <td><span class="caption"><span class="score glyphicon glyphicon-signal"></span>  Score : </td>
+                    <td>{{game.score}} </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="caption"><span class="genre glyphicon glyphicon-headphones"></span>  Genre : </td>
+                    <td>{{game.genre}}</td>
+                  </tr>
+                  <tr>
+                    <td><span class="caption"><span class="echoice glyphicon glyphicon-check"></span>  Editors Choice :</td>
+                    <td>{{game.editors_choice}}</td>
+                  </tr>
+              </table>          
+           </div>
+     </div>
+	</div>
+
+ <div class="col-xs-12 text-center bgBlack footer">
+      <div class="col-xs-12">
+         <ul class="list-inline">
+           <li> <a href="https://www.facebook.com/dakshita.sharma.56"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+           <li> <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter </li>
+           <li> <i class="fa fa-google-plus-square" aria-hidden="true"></i> Google+ </li>
+           <li> <a><i class="fa fa-codepen" aria-hidden="true"></i> CodePen </a></li>
+           <li> <a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin </a></li>
+           <li> <a href=""><i class="fa fa-github" aria-hidden="true"></i> Github </a></li>
+         </ul>
+
+         <ul class="list-unstyled">
+           <li> Game Arena- 2018 @Dakshita Sharma</li>
+          
+         </ul>
+      </div>
+  </div>
+</body>
+
+
+
+</html>
